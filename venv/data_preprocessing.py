@@ -25,3 +25,8 @@ X = onehotencoder.fit_transform(X).toarray()
 labelencoder_Y = LabelEncoder()
 y = labelencoder_Y.fit_transform(y)
 print(y)
+
+#splitting the training data from real data
+from sklearn.model_selection import train_test_split
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size = 0.2, random_state = 0)
