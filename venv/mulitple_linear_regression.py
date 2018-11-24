@@ -32,3 +32,9 @@ X = onehotencoder.fit_transform(X).toarray()
 #Avoiding the Dummy variable trap-remove one of the dummy variables
 """most libraries do this automatically"""
 X = X[:, 1:]
+#Fitting the Multiple Linear Regression t othe Training set
+from sklearn.linear_model import LinearRegression
+regressor = LinearRegression()
+regressor.fit(X_train, y_train)
+
+#Predicting the Test set results
