@@ -41,3 +41,16 @@ regressor.fit(X_train, y_train)
 
 #Predicting the Test set results
 Y_pred = regressor.predict(X_test)
+#Building the optimal model using backward elimination
+"""
+Step 1 -Select a significance level to stay: i.e. SL = .05
+Step 2 -Fit the model with all possible predictors
+Step 3 -Consider the rpedictor with the highest P-value: If P > SL go to Step 4, else finished
+Step 4 -Remove the predictor
+Step 5 -Fit model without this variable, re-run from Step 3
+"""
+import statsmodels.formula.api as sm
+#adding a 50 by 1 matrix of ones to the begining of X, this signifies Xsub 0
+X = np.append(arr = np.ones((50, 1)).astype(int), values = X, axis = 1)
+#use only the optimal variables
+X_opt = X[:, [0, 1, 2, 3, 4, 5]]
