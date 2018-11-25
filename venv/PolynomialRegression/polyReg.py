@@ -23,3 +23,24 @@ y_train = sc_y.fit_transform(y_train)"""
 # X[:, 3]= labelencoder_X.fit_transform(X[:, 3])
 # onehotencoder = OneHotEncoder(categorical_features=[3])
 # X = onehotencoder.fit_transform(X).toarray()
+
+#Fitting the linear regression to the dataset
+from sklearn.linear_model import LinearRegression
+lin_reg = LinearRegression()
+lin_reg.fit(X, y)
+
+#Fitting polynomial regression
+from sklearn.preprocessing import PolynomialFeatures
+poly_reg = PolynomialFeatures(degree=2)
+X_poly = poly_reg.fit_transform(X)
+
+lin_reg2 = LinearRegression()
+lin_reg2.fit(X_poly, y)
+
+#Visualize the results
+plt.scatter(X, y, color='red')
+plt.plot(X, lin_reg.predict(X), color='green')
+plt.title('Linear Regression')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
