@@ -54,3 +54,10 @@ plt.title('Polynomial Regression')
 plt.xlabel('Position level with .1 steps')
 plt.ylabel('Salary')
 plt.show()
+
+#Make predictions
+
+print(lin_reg.predict([[6.5]]))
+
+#predict poly
+print(lin_reg2.predict(poly_reg.fit_transform([[6.5]])))
