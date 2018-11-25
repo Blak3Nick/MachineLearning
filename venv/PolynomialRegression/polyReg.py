@@ -37,7 +37,15 @@ X_poly = poly_reg.fit_transform(X)
 lin_reg2 = LinearRegression()
 lin_reg2.fit(X_poly, y)
 
-#Visualize the results
+#Visualize the  linear results
+plt.scatter(X, y, color='red')
+plt.plot(X, lin_reg.predict(X), color='green')
+plt.title('Linear Regression')
+plt.xlabel('Position level')
+plt.ylabel('Salary')
+plt.show()
+
+#Visualize the polynomial results
 plt.scatter(X, y, color='red')
 plt.plot(X, lin_reg.predict(X), color='green')
 plt.title('Linear Regression')
