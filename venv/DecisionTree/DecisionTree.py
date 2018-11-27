@@ -48,7 +48,7 @@ y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(np.array([[6.5]
 # X_grid = X_grid.reshape((len(X_grid), 1))
 plt.scatter(X, y, color='red')
 plt.plot(X, regressor.predict(X), color='purple')
-plt.title('Salary Negotiations')
+plt.title('Decision Tree Regression')
 plt.xlabel('Position level')
 plt.ylabel('Salary')
 plt.show()
