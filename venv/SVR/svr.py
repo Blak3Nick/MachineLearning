@@ -32,7 +32,7 @@ regressor.fit(X, y)
 
 #predict poly
 # print(lin_reg2.predict(poly_reg.fit_transform([[6.5]])))
-y_pred = regressor.predict([[6.5]])
+y_pred = sc_y.inverse_transform(regressor.predict(sc_X.transform(np.array([[6.5]]))))
 #Visualize the  linear results
 """"
 #plt.scatter(X, y, color='red')
