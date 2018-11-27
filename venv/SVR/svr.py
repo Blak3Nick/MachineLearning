@@ -7,17 +7,16 @@ import pandas as pd
 # Importing the dataset
 dataset = pd.read_csv('Position_Salaries.csv')
 X = dataset.iloc[:, 1:2].values
-y = dataset.iloc[:, 2].values
+y = dataset.iloc[:, 2:3].values
 
 # Feature Scaling
-"""
-#from sklearn.preprocessing import StandardScaler
-#sc_X = StandardScaler()
-#X_train = sc_X.fit_transform(X_train)
-#X_test = sc_X.transform(X_test)
-#sc_y = StandardScaler()
-#y_train = sc_y.fit_transform(y_train)
-"""
+
+from sklearn.preprocessing import StandardScaler
+sc_X = StandardScaler()
+sc_y = StandardScaler()
+X = sc_X.fit_transform(X)
+y = sc_y.fit_transform(y)
+
 
 #encoding the categories
 # from sklearn.preprocessing import LabelEncoder, OneHotEncoder
@@ -43,7 +42,6 @@ y_pred = regressor.predict([[6.5]])
 # plt.ylabel('Salary')
 # plt.show()
 """
-
 #Visualize the polynomial results
 #for higher resolution include the next two lines
 # X_grid = np.arange(min(X), max(X), 0.1)
