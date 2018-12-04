@@ -26,17 +26,17 @@ y = dataset.iloc[:, 2].values
 # onehotencoder = OneHotEncoder(categorical_features=[3])
 # X = onehotencoder.fit_transform(X).toarray()
 from sklearn.ensemble import RandomForestRegressor
-regressor = RandomForestRegressor()
-
-y_pred = regressor.predict(6.5)
+regressor = RandomForestRegressor(n_estimators=1000, random_state=0)
+regressor.fit(X, y)
+y_pred = regressor.predict([[6.5]])
 
 
 #Visualize the polynomial results
 #for higher resolution include the next two lines
-X_grid = np.arange(min(X), max(X), 0.1)
+X_grid = np.arange(min(X), max(X), 0.001)
 X_grid = X_grid.reshape((len(X_grid), 1))
 plt.scatter(X, y, color='red')
-plt.plot(X, lin_reg2.predict(poly_reg.fit_transform(X)), color='green')
+plt.plot(X_grid, regressor.predict(X_grid), color='green')
 plt.title('Random Forest')
 plt.xlabel('Position level with .1 steps')
 plt.ylabel('Salary')
